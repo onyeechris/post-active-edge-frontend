@@ -19,7 +19,8 @@ ENV REACT_APP_BACKEND_SERVICE=""
 
 
 # add app
-COPY . /app
+COPY . /app 
+EXPOSE 3000
 
 # start app
 CMD ["npm", "start"]
