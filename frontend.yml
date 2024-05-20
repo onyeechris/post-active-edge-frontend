@@ -24,6 +24,7 @@ spec:
       containers:
       - name: frontend
         image: onyeechris/post-frontend:latest
+        imagePullPolicy: Always
         ports:
           - containerPort: 3000
         env:
