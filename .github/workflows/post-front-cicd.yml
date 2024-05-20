@@ -53,5 +53,7 @@ jobs:
           aws-region: us-east-1
       - name: Update kube_config
         run: aws eks update-kubeconfig --name demen-1-cluster --region us-east-1
-      - name: Deploy apps 
+      - name: Wait for 120 seconds before deploying backend
+        run: sleep 120
+      - name: Deploy apps
         run: kubectl apply -f frontend.yml
