@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: onyeechris/post-frontend:main-6d1bd26
+        image: onyeechris/post-frontend:latest
         ports:
           - containerPort: 3000
         env:
