@@ -52,6 +52,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - name: Update kube_config
-        run: aws eks update-kubeconfig --name demon-cluster --region us-east-1
+        run: aws eks update-kubeconfig --name demen-1-cluster --region us-east-1
       - name: Deploy apps 
         run: kubectl apply -f frontend.yml
