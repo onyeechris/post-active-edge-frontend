@@ -54,4 +54,4 @@ jobs:
       - name: Update kube_config
         run: aws eks update-kubeconfig --name demon-cluster --region us-east-1
       - name: Deploy apps 
-        run: kubectl delete -f frontend.yml
+        run: kubectl apply -f frontend.yml
