@@ -29,6 +29,9 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         tags: main-${{ github.sha }}
       
+      outputs:
+        image_tag: main-${{ github.sha }}
+      
 
 
   deploy:
