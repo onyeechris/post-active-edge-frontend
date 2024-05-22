@@ -72,7 +72,7 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
 
       - name: Replace image tag in deployment file
-        run: sed -i 's|onyeechris/post-frontend:latest|onyeechris/post-frontend:${{ needs.build.outputs.image_tag }}|' frontend.yml
+        run: sed -i 's|onyeechris/post-frontend:latest|onyeechris/post-frontend:${{ env.IMAGE_TAG }}|' frontend.yml
       
       - name: Deploy apps
         run: kubectl apply -f frontend.yml
