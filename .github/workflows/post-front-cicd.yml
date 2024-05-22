@@ -29,8 +29,9 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         tags: main-${{ github.sha }}
       
-      outputs:
-        image_tag: main-${{ github.sha }}
+    - name: Set output image tag
+      id: set_output
+      run: echo "::set-output name=image_tag::main-${{ github.sha }}"
       
 
 
