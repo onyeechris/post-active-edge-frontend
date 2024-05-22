@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: onyeechris/post-frontend:main-0842fa2
+        image: onyeechris/post-frontend:latest
         imagePullPolicy: Always
         ports:
           - containerPort: 3000
