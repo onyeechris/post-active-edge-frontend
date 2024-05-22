@@ -20,7 +20,7 @@ jobs:
     - run: npm install
     - run: npm run build --if-present
     
-    - name: Build Docker Image
+    - name: Build Docker Image3
       uses: mr-smithers-excellent/docker-build-push@v6
       with:
         image: onyeechris/post-frontend
