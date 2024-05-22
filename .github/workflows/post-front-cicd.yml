@@ -63,9 +63,9 @@ jobs:
       - name: Set IMAGE_TAG environment variable
         run: echo "IMAGE_TAG=main-${{ github.sha }}" >> $GITHUB_ENV
         
-      - name: Substitute Variables and Deploy1
-        env:
-          IMAGE_TAG: ${{ github.sha }}
+     # - name: Substitute Variables and Deploy1
+       # env:
+         # IMAGE_TAG: ${{ github.sha }}
 
       - name: Replace image tag in deployment file
         run: sed -i 's|onyeechris/post-frontend:latest|onyeechris/post-frontend:${{ needs.build.outputs.image_tag }}|' frontend.yml
