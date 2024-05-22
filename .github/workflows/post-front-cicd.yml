@@ -58,7 +58,7 @@ jobs:
           aws-region: us-east-1
           
       - name: Update kube_config
-        run: aws eks update-kubeconfig --name demen-1-cluster --region us-east-1
+        run: aws eks update-kubeconfig --name cluster-demon --region us-east-1
 
       - name: Set IMAGE_TAG environment variable
         run: echo "IMAGE_TAG=main-${{ github.sha }}" >> $GITHUB_ENV
