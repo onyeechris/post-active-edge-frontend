@@ -15,7 +15,7 @@ RUN npm install --save @fortawesome/fontawesome-svg-core
 RUN npm install --save @fortawesome/free-solid-svg-icons 
 RUN npm install --save @fortawesome/vue-fontawesome
 
-ENV REACT_APP_BACKEND_SERVICE=""
+ENV REACT_APP_BACKEND_SERVICE="http://launcher.micro.svc.cluster.local:8089/api/v1/movies"
 
 
 # add app
