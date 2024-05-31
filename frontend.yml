@@ -29,7 +29,7 @@ spec:
           - containerPort: 3000
         env:
           - name: BACKEND_URL
-            value: "http://launcher.micro.svc.cluster.local:8089/api/v1"
+            value: "http://launcher.micro.svc.cluster.local:8089/api/v1/movies"
         resources:
           requests:
             memory: "512Mi"
