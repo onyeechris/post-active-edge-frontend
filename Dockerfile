@@ -1,26 +1,33 @@
-# base image
 FROM node:14-alpine
 
-# set working directory
+# Create a non-root user and group
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
+# Set working directory
 WORKDIR /app
 
-# add `/app/node_modules/.bin` to $PATH
+# Copy package files and install dependencies
+COPY package.json package-lock.json ./
+RUN npm install \
+    && npm install --save @fortawesome/fontawesome-svg-core \
+    && npm install --save @fortawesome/free-solid-svg-icons \
+    && npm install --save @fortawesome/vue-fontawesome
+
+# Copy the rest of the application code
+COPY . .
+
+# Set environment variables
 ENV PATH /app/node_modules/.bin:$PATH
-
-# install and cache app dependencies
-COPY package.json /app/package.json
-COPY package-lock.json /app/package-lock.json
-RUN npm install
-RUN npm install --save @fortawesome/fontawesome-svg-core 
-RUN npm install --save @fortawesome/free-solid-svg-icons 
-RUN npm install --save @fortawesome/vue-fontawesome
-
 ENV REACT_APP_BACKEND_SERVICE="http://launcher.micro.svc.cluster.local:8089/api/v1/movies"
 
-
-# add app
-COPY . /app 
+# Expose the application port
 EXPOSE 3000
 
-# start app
+# Change ownership of the application files
+RUN chown -R appuser:appgroup /app
+
+# Switch to the non-root user
+USER appuser
+
+# Start the application
 CMD ["npm", "start"]
